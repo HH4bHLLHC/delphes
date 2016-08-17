@@ -77,9 +77,25 @@ void ConvertInput(fwlite::Event &event, Long64_t eventCounter,
   vector< const reco::Candidate * >::iterator itCandidate;
 
   handleGenEventInfo.getByLabel(event, "generator");
-  handleLHEEvent.getByLabel(event, "externalLHEProducer");
-  handleParticle.getByLabel(event, "genParticles");
+//  handleLHEEvent.getByLabel(event, "externalLHEProducer");
+//  handleParticle.getByLabel(event, "genParticles");
 
+    if (!((handleLHEEvent.getBranchNameFor(event, "source")).empty())) {
+        handleLHEEvent.getByLabel(event, "source");
+    }
+    else if (!((handleLHEEvent.getBranchNameFor(event, "externalLHEProducer")).empty())) {
+        handleLHEEvent.getByLabel(event, "externalLHEProducer");
+    }
+    else { std::cout<<"Wrong LHEEvent Label! Please, check the input file."<<std::endl; exit(-1);}
+    
+    if (!((handleParticle.getBranchNameFor(event, "genParticles")).empty())) {
+        handleParticle.getByLabel(event, "genParticles");
+    }
+    else if (!((handleParticle.getBranchNameFor(event, "prunedGenParticles")).empty())) {
+        handleParticle.getByLabel(event, "prunedGenParticles");
+    }
+    else { std::cout<<"Wrong GenParticle Label! Please, check the input file."<<std::endl; exit(-1);}
+    
   HepMCEvent *element;
   Weight *weight;
   Candidate *candidate;
