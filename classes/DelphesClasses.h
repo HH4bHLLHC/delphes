@@ -36,7 +36,7 @@
 #include "TRefArray.h"
 #include "TLorentzVector.h"
 
-#include "classes/SortableObject.h"
+#include "SortableObject.h"
 
 class DelphesFactory;
 
@@ -366,7 +366,12 @@ public:
   Float_t FracPt[5]; // (sum pt of constituents within a ring 0.1*i < DeltaR < 0.1*(i+1))/(sum pt of constituents)
 
   Float_t Tau[5]; // N-subjettiness
-
+  Float_t Prun[5]; // N-subjettiness
+  Float_t SoftDrop[5];
+  Float_t PrunPT[5];
+  Float_t PrunEta[5];
+  Float_t PrunPhi[5];
+    
   TLorentzVector TrimmedP4[5]; // first entry (i = 0) is the total Trimmed Jet 4-momenta and from i = 1 to 4 are the trimmed subjets 4-momenta
   TLorentzVector PrunedP4[5]; // first entry (i = 0) is the total Pruned Jet 4-momenta and from i = 1 to 4 are the pruned subjets 4-momenta
   TLorentzVector SoftDroppedP4[5]; // first entry (i = 0) is the total SoftDropped Jet 4-momenta and from i = 1 to 4 are the pruned subjets 4-momenta
@@ -564,6 +569,11 @@ public:
   // N-subjettiness variables
 
   Float_t Tau[5];
+  Float_t Prun[5]; // N-subjettiness
+  Float_t SoftDrop[5];
+    Float_t PrunPT[5];
+    Float_t PrunEta[5];
+    Float_t PrunPhi[5];
 
   // Other Substructure variables
 

@@ -458,18 +458,35 @@ void FastJetFinder::Process()
       fastjet::PseudoJet pruned_jet = pruner(*itOutputList);
 
       candidate->PrunedP4[0].SetPtEtaPhiM(pruned_jet.pt(), pruned_jet.eta(), pruned_jet.phi(), pruned_jet.m());
-         
+        TLorentzVector momentumtotPP;
+        momentumtotPP.SetPtEtaPhiM(pruned_jet.pt(), pruned_jet.eta(), pruned_jet.phi(), pruned_jet.m());
+        //Prun[0] = momentumtotPP.M();
+        candidate->Prun[0] = pruned_jet.m(); 
+        candidate->PrunPT[0] = pruned_jet.pt(); 
+        candidate->PrunEta[0] = pruned_jet.eta();
+        candidate->PrunPhi[0] = pruned_jet.phi(); 
+        //cout<<" "<<pruner(*itOutputList).m()<<endl;
+        //cout<<momentumtotPP.M()<<endl;
+        
       // four hardest subjet 
       subjets.clear();
       subjets = pruned_jet.pieces();
       subjets = sorted_by_pt(subjets);
       
       candidate->NSubJetsPruned = subjets.size();
-
+        //cout<<subjets.size()<<endl;
       for (size_t i = 0; i < subjets.size() and i < 4; i++)
       {
 	    if(subjets.at(i).pt() < 0) continue ; 
   	    candidate->PrunedP4[i+1].SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
+          TLorentzVector momentumP;
+          momentumP.SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
+          candidate->Prun[i+1] = subjets.at(i).m();
+          candidate->PrunPT[i+1] = subjets.at(i).pt(); 
+          candidate->PrunEta[i+1] = subjets.at(i).eta();
+          candidate->PrunPhi[i+1] = subjets.at(i).phi();          
+
+          //cout<<momentumP.M()<<endl;
       }
 
     } 
@@ -485,7 +502,9 @@ void FastJetFinder::Process()
       fastjet::PseudoJet softdrop_jet = softDrop(*itOutputList);
       
       candidate->SoftDroppedP4[0].SetPtEtaPhiM(softdrop_jet.pt(), softdrop_jet.eta(), softdrop_jet.phi(), softdrop_jet.m());
-        
+      TLorentzVector momentumtot;
+      momentumtot.SetPtEtaPhiM(softdrop_jet.pt(), softdrop_jet.eta(), softdrop_jet.phi(), softdrop_jet.m());
+      candidate->SoftDrop[0] = momentumtot.M();
       // four hardest subjet 
       
       subjets.clear();
@@ -497,6 +516,9 @@ void FastJetFinder::Process()
       {
 	    if(subjets.at(i).pt() < 0) continue ; 
   	    candidate->SoftDroppedP4[i+1].SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
+          TLorentzVector momentum;
+        momentum.SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
+        candidate->SoftDrop[i+1] = momentum.M();
       }
     }
   

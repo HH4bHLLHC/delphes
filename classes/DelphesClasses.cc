@@ -163,6 +163,37 @@ Candidate::Candidate() :
   Tau[2] = 0.0;
   Tau[3] = 0.0;
   Tau[4] = 0.0;
+    
+    Prun[0] = 0.0;
+    Prun[1] = 0.0;
+    Prun[2] = 0.0;
+    Prun[3] = 0.0;
+    Prun[4] = 0.0;
+    
+    PrunPT[0] = 0.0;
+    PrunPT[1] = 0.0;
+    PrunPT[2] = 0.0;
+    PrunPT[3] = 0.0;
+    PrunPT[4] = 0.0;
+    
+    PrunEta[0] = 0.0;
+    PrunEta[1] = 0.0;
+    PrunEta[2] = 0.0;
+    PrunEta[3] = 0.0;
+    PrunEta[4] = 0.0;
+    
+    PrunPhi[0] = 0.0;
+    PrunPhi[1] = 0.0;
+    PrunPhi[2] = 0.0;
+    PrunPhi[3] = 0.0;
+    PrunPhi[4] = 0.0;
+    
+    SoftDrop[0] = 0.0;
+    SoftDrop[1] = 0.0;
+    SoftDrop[2] = 0.0;
+    SoftDrop[3] = 0.0;
+    SoftDrop[4] = 0.0;
+    
   for(i = 0; i < 5; ++i)
   {
     TrimmedP4[i].SetXYZT(0.0, 0.0, 0.0, 0.0);
@@ -293,6 +324,36 @@ void Candidate::Copy(TObject &obj) const
   object.Tau[3] = Tau[3];
   object.Tau[4] = Tau[4];
 
+    object.Prun[0] = Prun[0];
+    object.Prun[1] = Prun[1];
+    object.Prun[2] = Prun[2];
+    object.Prun[3] = Prun[3];
+    object.Prun[4] = Prun[4];
+    
+    object.PrunPT[0] = PrunPT[0];
+    object.PrunPT[1] = PrunPT[1];
+    object.PrunPT[2] = PrunPT[2];
+    object.PrunPT[3] = PrunPT[3];
+    object.PrunPT[4] = PrunPT[4];
+
+    object.PrunEta[0] = PrunEta[0];
+    object.PrunEta[1] = PrunEta[1];
+    object.PrunEta[2] = PrunEta[2];
+    object.PrunEta[3] = PrunEta[3];
+    object.PrunEta[4] = PrunEta[4];
+    
+    object.PrunPhi[0] = PrunPhi[0];
+    object.PrunPhi[1] = PrunPhi[1];
+    object.PrunPhi[2] = PrunPhi[2];
+    object.PrunPhi[3] = PrunPhi[3];
+    object.PrunPhi[4] = PrunPhi[4];
+    
+    object.SoftDrop[0] = SoftDrop[0];
+    object.SoftDrop[1] = SoftDrop[1];
+    object.SoftDrop[2] = SoftDrop[2];
+    object.SoftDrop[3] = SoftDrop[3];
+    object.SoftDrop[4] = SoftDrop[4];
+    
   object.TrimmedP4[0] = TrimmedP4[0];
   object.TrimmedP4[1] = TrimmedP4[1];
   object.TrimmedP4[2] = TrimmedP4[2];
@@ -396,7 +457,37 @@ void Candidate::Clear(Option_t* option)
   Tau[2] = 0.0;
   Tau[3] = 0.0;
   Tau[4] = 0.0;
+    
+  Prun[0] = 0.0;
+  Prun[1] = 0.0;
+  Prun[2] = 0.0;
+  Prun[3] = 0.0;
+  Prun[4] = 0.0;
+    
+    PrunPT[0] = 0.0;
+    PrunPT[1] = 0.0;
+    PrunPT[2] = 0.0;
+    PrunPT[3] = 0.0;
+    PrunPT[4] = 0.0;
+    
+    PrunEta[0] = 0.0;
+    PrunEta[1] = 0.0;
+    PrunEta[2] = 0.0;
+    PrunEta[3] = 0.0;
+    PrunEta[4] = 0.0;
+    
+    PrunPhi[0] = 0.0;
+    PrunPhi[1] = 0.0;
+    PrunPhi[2] = 0.0;
+    PrunPhi[3] = 0.0;
+    PrunPhi[4] = 0.0;
 
+  SoftDrop[0] = 0.0;
+  SoftDrop[1] = 0.0;
+  SoftDrop[2] = 0.0;
+  SoftDrop[3] = 0.0;
+  SoftDrop[4] = 0.0;
+    
   for(i = 0; i < 5; ++i)
   {
     TrimmedP4[i].SetXYZT(0.0, 0.0, 0.0, 0.0);
