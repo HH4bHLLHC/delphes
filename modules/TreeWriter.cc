@@ -611,9 +611,6 @@ void TreeWriter::ProcessJets(ExRootTreeBranch *branch, TObjArray *array)
       entry->FracPt[i] = candidate -> FracPt[i];
       entry->Tau[i] = candidate -> Tau[i];
       entry->Prun[i] = candidate -> Prun[i];
-      entry->Prun[i] = candidate -> PrunPT[i];
-      entry->Prun[i] = candidate -> PrunEta[i];
-      entry->Prun[i] = candidate -> PrunPhi[i];
       entry->SoftDrop[i] = candidate -> SoftDrop[i];
       entry->TrimmedP4[i] = candidate -> TrimmedP4[i];
       entry->PrunedP4[i] = candidate -> PrunedP4[i];

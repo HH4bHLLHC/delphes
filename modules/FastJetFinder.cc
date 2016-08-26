@@ -461,10 +461,7 @@ void FastJetFinder::Process()
         TLorentzVector momentumtotPP;
         momentumtotPP.SetPtEtaPhiM(pruned_jet.pt(), pruned_jet.eta(), pruned_jet.phi(), pruned_jet.m());
         //Prun[0] = momentumtotPP.M();
-        candidate->Prun[0] = pruned_jet.m(); 
-        candidate->PrunPT[0] = pruned_jet.pt(); 
-        candidate->PrunEta[0] = pruned_jet.eta();
-        candidate->PrunPhi[0] = pruned_jet.phi(); 
+        candidate->Prun[0] = pruner(*itOutputList).m();
         //cout<<" "<<pruner(*itOutputList).m()<<endl;
         //cout<<momentumtotPP.M()<<endl;
         
@@ -481,11 +478,7 @@ void FastJetFinder::Process()
   	    candidate->PrunedP4[i+1].SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
           TLorentzVector momentumP;
           momentumP.SetPtEtaPhiM(subjets.at(i).pt(), subjets.at(i).eta(), subjets.at(i).phi(), subjets.at(i).m());
-          candidate->Prun[i+1] = subjets.at(i).m();
-          candidate->PrunPT[i+1] = subjets.at(i).pt(); 
-          candidate->PrunEta[i+1] = subjets.at(i).eta();
-          candidate->PrunPhi[i+1] = subjets.at(i).phi();          
-
+          candidate->Prun[i+1] = momentumP.M();
           //cout<<momentumP.M()<<endl;
       }
 

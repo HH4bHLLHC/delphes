@@ -368,9 +368,6 @@ public:
   Float_t Tau[5]; // N-subjettiness
   Float_t Prun[5]; // N-subjettiness
   Float_t SoftDrop[5];
-  Float_t PrunPT[5];
-  Float_t PrunEta[5];
-  Float_t PrunPhi[5];
     
   TLorentzVector TrimmedP4[5]; // first entry (i = 0) is the total Trimmed Jet 4-momenta and from i = 1 to 4 are the trimmed subjets 4-momenta
   TLorentzVector PrunedP4[5]; // first entry (i = 0) is the total Pruned Jet 4-momenta and from i = 1 to 4 are the pruned subjets 4-momenta
@@ -571,9 +568,6 @@ public:
   Float_t Tau[5];
   Float_t Prun[5]; // N-subjettiness
   Float_t SoftDrop[5];
-    Float_t PrunPT[5];
-    Float_t PrunEta[5];
-    Float_t PrunPhi[5];
 
   // Other Substructure variables
 
